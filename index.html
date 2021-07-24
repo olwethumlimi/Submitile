@@ -1,12 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/mobile_nav.css">
 </head>
+
 <body>
-    
+    <div class="top-nav">
+        <div class="container-fluid">
+            <span>SUB<span class="m">m</span>ITILE</span>
+            <div class="links">
+                <a class="active-nav-link">home</a>
+                <a>profile</a>
+                <a>post</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav">
+        <div class="tab active-tab">
+            <i class="fa fa-home"></i>
+            <span>home</span>
+        </div>
+
+        <div class="tab">
+            <i class="fa fa-plus-circle"></i>
+            <span>post</span>
+        </div>
+        <div class="tab">
+            <i class="fa fa-user-circle"></i>
+            <span>profile</span>
+        </div>
+
+      
+    </div>
+
+    <div class="line1"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog" style="border-radius: 0;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Forgot Password</h6>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" style="max-width: 450px;">
+                        <h3 class="text-center text-primary">
+                            <i class="fa fa-lock"></i>
+                            <div>Forgot Password</div>
+                        </h3>
+                        <div class="textField my-4">
+                            <label for="">email</label>
+                            <input type="text">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn button btn btn-blue text-white">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="max-width: 450px;">
+        <div class="icon mt-5">
+            <img src="static/img/icon2.jpg" alt="">
+        </div>
+        <div class="logo mb-3">
+            find a Tutor or a Writer
+        </div>
+        <div class="form-options">
+            <div class="left active-form" onclick="tabs(this)" id="login">Login</div>
+            <div class="center">|</div>
+            <div class="right" onclick="tabs(this)" id="register">Register</div>
+        </div>
+
+        <div class="login-tab">
+            <div class="textField my-4">
+                <label for="">email</label>
+                <input type="text">
+            </div>
+
+            <div class="textField my-4">
+                <label for="">password</label>
+                <input type="text">
+            </div>
+
+            <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Login</div>
+            <div class="text-center">
+                <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
+                    password</a>
+            </div>
+        </div>
+
+
+        <div class="register-tab" style="display: none;">
+            <div class="textField my-4">
+                <label for="">email</label>
+                <input type="text">
+            </div>
+
+            <div class="textField my-4">
+                <label for="">password</label>
+                <input type="text">
+            </div>
+
+            <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Register</div>
+            <div class="text-center">
+                <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
+                    password</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function tabs(value) {
+            var data = ["login", "register"]
+            var track = value.getAttribute("id")
+            data.map(e => {
+                if (e.includes(track)) {
+                    $("." + e + "-tab").show()
+                    $("#" + e).addClass("active-form")
+                } else {
+                    $("." + e + "-tab").hide()
+                    $("#" + e).removeClass("active-form")
+                }
+            });
+        }
+    </script>
 </body>
+
 </html>
