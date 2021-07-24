@@ -41,6 +41,10 @@ body{
     border-radius: var(--radius);
 }
 
+.blue-text{
+    color: var(--primary);
+}
+
 .icon{
 
      border-radius: 50%;

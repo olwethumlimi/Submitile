@@ -14,6 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/mobile_nav.css">
+    <link rel="stylesheet" href="static/css/page.css">
+
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         </div>
     </div>
 
-    <div class="mobile-nav">
+    <div class="bottom-nav">
         <div class="tab active-tab">
             <i class="fa fa-home"></i>
             <span>home</span>
@@ -43,14 +45,89 @@
             <span>profile</span>
         </div>
 
-
-
-        
-      
     </div>
 
+    <!-- loader -->
     <div class="line1"></div>
+    <!-- end loader -->
+    <div class="app-page center-page">
 
+        <div class="text-center">
+            <div class="icon py-3 searching-loader">
+                <img src="static/img/icon2.jpg" alt="">
+            </div>
+            <h1 class="blue-text py-2">Finding Suitable writer</h1>
+            <div class="count-down  py-2">TIME:5000</div>
+            <button class="btn btn-rounded btn-outline-danger btn-large">CANCEL</button>
+        </div>
+    </div>
+    <div class="app-page push-page">
+
+        <div class="container" style="max-width: 450px;">
+            <div class="icon mt-5">
+                <img src="static/img/icon2.jpg" alt="">
+            </div>
+            <div class="logo mb-3">
+                find a Tutor or a Writer
+            </div>
+    
+            <div class="form-options">
+                <div class="left active-form" onclick="tabs(this)" id="login">Login</div>
+                <div class="center">|</div>
+                <div class="right" onclick="tabs(this)" id="register">Register</div>
+            </div>
+    
+            <!--login -->
+            <div class="login-tab">
+                <div class="textField my-4">
+                    <label for="">email</label>
+                    <input type="text">
+                </div>
+    
+                <div class="textField my-4">
+                    <label for="">password</label>
+                    <input type="text">
+                </div>
+    
+                <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Login</div>
+                <div class="text-center">
+                    <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
+                        password</a>
+                </div>
+            </div>
+            <!-- end login -->
+    
+            <!-- register -->
+            <div class="register-tab" style="display: none;">
+                <div class="textField my-4">
+                    <label for="">email</label>
+                    <input type="text">
+                </div>
+    
+                <div class="textField my-4">
+                    <label for="">password</label>
+                    <input type="text">
+                </div>
+    
+                <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Register</div>
+                <div class="text-center">
+                    <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
+                        password</a>
+                </div>
+            </div>
+            <!-- end register -->
+        </div>
+        
+
+    </div>
+
+
+    <!-- loader -->
+    <div class="line1"></div>
+    <!-- end loader -->
+
+
+    <!--  forgot password -->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog" style="border-radius: 0;">
@@ -79,78 +156,28 @@
         </div>
     </div>
 
-
-    <div class="container" style="max-width: 450px;">
-        <div class="icon mt-5">
-            <img src="static/img/icon2.jpg" alt="">
-        </div>
-        <div class="logo mb-3">
-            find a Tutor or a Writer
-        </div>
-        <div class="form-options">
-            <div class="left active-form" onclick="tabs(this)" id="login">Login</div>
-            <div class="center">|</div>
-            <div class="right" onclick="tabs(this)" id="register">Register</div>
-        </div>
-
-        <div class="login-tab">
-            <div class="textField my-4">
-                <label for="">email</label>
-                <input type="text">
-            </div>
-
-            <div class="textField my-4">
-                <label for="">password</label>
-                <input type="text">
-            </div>
-
-            <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Login</div>
-            <div class="text-center">
-                <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
-                    password</a>
-            </div>
-        </div>
+    <!-- end forgot password -->
 
 
-        <div class="register-tab" style="display: none;">
-            <div class="textField my-4">
-                <label for="">email</label>
-                <input type="text">
-            </div>
-
-            <div class="textField my-4">
-                <label for="">password</label>
-                <input type="text">
-            </div>
-
-            <div class="button btn btn-blue text-white btn-lg my-3 btn-block">Register</div>
-            <div class="text-center">
-                <a class="link text-center btn" data-mdb-toggle="modal" data-mdb-target="#exampleModal">forgot
-                    password</a>
-            </div>
-        </div>
-    </div>
 
 
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script src="static/js/form-tabs.js"></script>
+
     <script>
-        function tabs(value) {
-            var data = ["login", "register"]
-            var track = value.getAttribute("id")
-            data.map(e => {
-                if (e.includes(track)) {
-                    $("." + e + "-tab").show()
-                    $("#" + e).addClass("active-form")
-                } else {
-                    $("." + e + "-tab").hide()
-                    $("#" + e).removeClass("active-form")
-                }
-            });
-        }
+        count=1000
+        var time=setInterval(() => {
+            $(".count-down").html("TIME LEFT "+count)
+            count--;
+            if(count<0){
+                clearInterval(time)
+            }
+        },20);
     </script>
+
 </body>
 
 </html>

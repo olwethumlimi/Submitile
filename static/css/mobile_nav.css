@@ -1,4 +1,4 @@
-.mobile-nav{
+.bottom-nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -9,8 +9,9 @@
     right: 0;
     bottom: 0;
     display: none;
+    z-index: 999999999999999999;
 }
-.mobile-nav .tab{
+.bottom-nav .tab{
     height: 100%;
     display: flex;
     align-items: center;
@@ -22,15 +23,18 @@
     font-size: 12px;
     cursor: pointer;
 }
-.mobile-nav .active-tab{
+.bottom-nav .active-tab{
     border-top: 2px white solid;
 }
 
 
-
 .top-nav{
-
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
     background: var(--primary);
+     z-index: 999999999999999999;
     
 }
 
@@ -82,7 +86,7 @@ span{
     .top-nav .links{
         display:none ;
     }
-    .mobile-nav{
+    .bottom-nav{
         display: flex;
     }
 }
